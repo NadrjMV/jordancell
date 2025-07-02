@@ -303,3 +303,15 @@ main.container > section {
     height: 36px;
     width: auto;
 }
+
+/* Estilo para o link de crédito no rodapé */
+.dev-credit-link {
+    color: var(--text-muted);
+    font-weight: 600;
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: color 0.3s;
+}
+
+.dev-credit-link:hover {
+    color: var(--accent-blue); /* Muda para a cor de destaque ao passar o mouse */
+}
