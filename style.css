@@ -1,5 +1,6 @@
+/* --- RESET E VARIÁVEIS GLOBAIS (Design Glassy 3D) --- */
 :root {
-    --dark-bg: #0d0f18;
+    --dark-bg: #0d0f18; /* Um azul/preto profundo */
     --glass-bg: rgba(22, 25, 40, 0.5);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 60%);
@@ -10,6 +11,7 @@
 
     --text-light: #F5F5F7;
     --text-muted: #8D8D92;
+    --azul-verificado: #007AFF;
 
     --font-principal: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --header-height: 5rem;
@@ -81,8 +83,8 @@ body {
 }
 
 @keyframes float {
-    0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-    100% { transform: translateY(40px) translateX(-30px) rotate(20deg); }
+    0% { transform: translateY(0px) translateX(0px) scale(1); }
+    100% { transform: translateY(40px) translateX(-30px) scale(1.1); }
 }
 
 /* --- ESTILOS GERAIS --- */
@@ -149,11 +151,19 @@ main.container > section {
 }
 
 .logo {
-    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
     font-weight: 700;
+    color: var(--text-light);
     text-decoration: none;
 }
-.logo i { color: var(--accent-blue); margin-right: 0.5rem; }
+
+.logo img {
+    height: 32px;
+    width: auto;
+}
 
 .menu { display: flex; gap: 2rem; list-style: none; }
 .menu a { font-weight: 500; color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
@@ -171,7 +181,7 @@ main.container > section {
 .btn-primary { background-color: var(--accent-blue); color: white; }
 .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-/* --- HERO --- */
+/* --- HERO SECTION --- */
 .hero {
     text-align: center;
     padding: 4rem 2.5rem;
@@ -190,6 +200,7 @@ main.container > section {
     margin: 0 auto 2rem auto;
 }
 
+/* --- APRESENTAÇÃO --- */
 .apresentacao-card {
     display: flex;
     flex-direction: column;
@@ -197,13 +208,14 @@ main.container > section {
     text-align: center;
     gap: 1.5rem;
 }
+/* Estilo para a foto de perfil (substitui o placeholder) */
 .apresentacao-foto {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
-    object-fit: cover; 
-    border: 2px solid var(--glass-border); 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); 
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: cover; /* Garante que a foto preencha o círculo sem distorcer */
+    border: 2px solid var(--glass-border); /* Mantém a borda do estilo glassy */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar */
 }
 .apresentacao-info h2 { font-size: 2rem; font-weight: 700; }
 .apresentacao-info .cargo { color: var(--accent-blue); font-weight: 600; margin-bottom: 1rem; }
@@ -223,6 +235,7 @@ main.container > section {
 .servico-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
 .servico-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
 
+/* --- MARQUEE --- */
 .section-marquee { padding: 0; }
 .marquee { overflow: hidden; padding: 2rem 0; display: flex; }
 .marquee-content { 
@@ -243,6 +256,31 @@ main.container > section {
     to { transform: translateX(-50%); }
 }
 
+/* --- AVALIAÇÕES (NOVA SEÇÃO) --- */
+.avaliacoes-box {
+    text-align: center;
+    padding: 3rem 2.5rem;
+}
+
+.avaliacoes-icon {
+    font-size: 3rem;
+    color: var(--accent-blue);
+    margin-bottom: 1.5rem;
+}
+
+.avaliacoes-box h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.avaliacoes-box p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.7;
+}
+
+/* --- CONTATO E MAPA --- */
 .contato-box { text-align: center; margin-bottom: 3rem; }
 .contato-box h2 { font-size: 2rem; margin-bottom: 1rem; }
 .contato-box p { color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem auto; }
@@ -274,6 +312,20 @@ main.container > section {
 
 /* --- FOOTER --- */
 #footer { text-align: center; padding: 2rem 0; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--glass-border); margin-top: 2rem; }
+.dev-credit-link {
+    color: var(--text-light);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.dev-credit-link:hover {
+    color: var(--accent-blue);
+}
+.verified-badge {
+    color: var(--azul-verificado);
+    font-size: 0.9em;
+    margin-left: 4px;
+}
 
 /* --- ANIMAÇÕES --- */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.5s ease-out; }
@@ -291,33 +343,4 @@ main.container > section {
     .menu { display: none; }
     .hero h1 { font-size: 2.8rem; }
     .section-title { font-size: 2rem; }
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.logo img {
-    height: 36px;
-    width: auto;
-}
-
-.dev-credit-link {
-    color: var(--text-muted);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.dev-credit-link:hover {
-    color: var(--accent-blue); 
-}
-
-/* Estilo para o selo de verificado no rodapé */
-.verified-badge {
-    color: var(--accent-blue);
-    font-size: 0.85em; 
-    margin-left: 4px; 
 }
