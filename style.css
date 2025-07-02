@@ -304,14 +304,20 @@ main.container > section {
     width: auto;
 }
 
-/* Estilo para o link de crédito no rodapé */
 .dev-credit-link {
     color: var(--text-muted);
     font-weight: 600;
-    text-decoration: none; /* Remove o sublinhado padrão */
+    text-decoration: none;
     transition: color 0.3s;
 }
 
 .dev-credit-link:hover {
-    color: var(--accent-blue); /* Muda para a cor de destaque ao passar o mouse */
+    color: var(--accent-blue); 
+}
+
+/* Estilo para o selo de verificado no rodapé */
+.verified-badge {
+    color: var(--accent-blue);
+    font-size: 0.85em; 
+    margin-left: 4px; 
 }
